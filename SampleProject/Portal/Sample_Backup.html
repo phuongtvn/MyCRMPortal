@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet" />-->
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Dynamics CRM Web API Sample</a>
+            </div>
+            <div id="anonymous_user">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a id="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+            <div id="register_user">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a><span id="user_name"></span></a></li>
+                    <li><a id="sign_out">Sign out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="container" class="container">
+        <div class="jumbotron">
+            <h1>Dynamics CRM Web API Sample</h1>
+            <p>This sample contains method on how to use Microsoft Dynamics Web API which is introduced in 2016 version</p>
+        </div>
+        <div class="panel">
+            <div class="panel-body">
+                <button id="btnQuery" class="btn btn-primary" onclick="queryAccount()">Query Account</button>
+            </div>
+        </div>
+        <table id="dataTable" class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Account Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Operation</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <div class="well">
+            <button class="btn btn-primary" id="btn_get_name">Get Logged In Full name</button>
+        </div>
+
+        <!-- Modal -->
+        <div id="editModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Quick Create Form</h4>
+                    </div>
+                    <div id="form-body" class="row modal-body">
+                        <div class="col-md-4">
+                            <input type="text" attribute-name="name" value="" />
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" attribute-name="emailaddress1" value="" />
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" attribute-name="telephone1" value="" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <script src="scripts/adal.js"></script>
+    <script src="scripts/util.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/angular-route.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/contactController.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        .borderless {
+            border: none;
+        }
+    </style>
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet" />-->
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body ng-app="myApp">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Dynamics CRM Web API Sample</a>
+            </div>
+            <div id="anonymous_user">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a id="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+            <div id="register_user">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a><span id="user_name"></span></a></li>
+                    <li><a id="sign_out">Sign out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <table id="container" class="table table-responsive">
+        <thead class="">
+            <tr class="">
+                <th width="300px">
+                    LEFT BAR BODY
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td>
+                    <div class="panel panel-default borderless">
+                        <div class="panel-body container-fluid" ng-view>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>    
+
+    <script src="scripts/adal.js"></script>
+    <script src="scripts/util.js"></script>
+</body>
+</html>

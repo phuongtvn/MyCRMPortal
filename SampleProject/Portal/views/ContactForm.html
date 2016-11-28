@@ -1,0 +1,30 @@
+﻿<h2>
+    Contact: {{selectedRecord.fullname}}
+</h2>
+<a class="btn btn-primary" href="#contact/view">Go to view</a>
+<form  class="form-horizontal" ng-init="formInit()">
+    <div class="form-group row">
+        <label for="fullname" class="col-md-1 control-label">Fullname</label>
+        <div class="col-md-4">
+            <input class="form-control" type="text" value="{{selectedRecord.fullname}}" id="fullname">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="fullname" class="col-md-1 control-label">Job Title</label>
+        <div class="col-md-4">
+            <input class="form-control" type="text" value="{{selectedRecord.jobtitle}}" id="jobtitle">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="emailaddress1" class="col-md-1 control-label">Email</label>
+        <div class="col-md-4">
+            <input class="form-control" type="text" value="{{selectedRecord.emailaddress1}}" id="emailaddress1">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="telephone1" class="col-md-1 control-label">Phone</label>
+        <div class="col-md-4">
+            <input class="form-control" type="text" value="{{selectedRecord.telephone1}}" id="telephone1">
+        </div>
+    </div>
+</form>

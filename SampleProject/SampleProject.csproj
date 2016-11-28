@@ -117,24 +117,32 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Global.asax" />
-    <Content Include="scripts\ai.0.22.19-build00125.js" />
-    <Content Include="scripts\ai.0.22.19-build00125.min.js" />
+    <Content Include="Portal\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Portal\css\bootstrap.min.css" />
+    <Content Include="Portal\Sample_Backup.html" />
+    <Content Include="Portal\Sample.html" />
+    <Content Include="Portal\scripts\adal-angular.js" />
+    <Content Include="Portal\scripts\adal.js" />
+    <Content Include="Portal\scripts\app.js" />
+    <Content Include="Portal\scripts\controllers\contactController.js" />
+    <Content Include="Portal\scripts\util.js" />
+    <Content Include="Portal\views\ContactForm.html" />
+    <Content Include="Portal\views\ContactView.html" />
+    <Content Include="Portal\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Portal\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Portal\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Portal\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Portal\scripts\angular-mocks.js" />
+    <Content Include="Portal\scripts\angular.js" />
+    <Content Include="Portal\scripts\angular.min.js" />
+    <Content Include="Portal\scripts\angular-route.js" />
+    <Content Include="Portal\scripts\angular-route.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\web.config" />
-    <Content Include="packages.config" />
-    <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -142,11 +150,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
