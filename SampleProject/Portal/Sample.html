@@ -10,12 +10,44 @@
     <script src="scripts/angular-route.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/contactController.js"></script>
+    <script src="scripts/controllers/pt_sampleentityController.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <style>
         .borderless {
             border: none;
         }
     </style>
+    <script>
+        $(document).ready(function () {
+            var type = window.location.hash.substr(1);
+            var ent = "";
+            var link = "";
+            if (type == "")
+                ent = "contact";
+            else {
+                if (type[0] == '/')
+                    type = type.slice(1);
+                ent = type.substr(0, type.indexOf('/'));
+            }
+
+            switch (ent) {
+                case "contact":
+                    link = "link_contact";
+                    break;
+                case "pt_sampleentity":
+                    link = "link_pt_sampleentity";
+                    break;
+                default:
+                    break;
+            }
+
+            if (link != "")
+            {
+                let links = $("#nav_entities").children('li').removeClass("active");
+                $("#" + link).addClass("active");
+            }
+        });
+    </script>
     <!--<link href="css/bootstrap.min.css" rel="stylesheet" />-->
     <title></title>
     <meta charset="utf-8" />
@@ -43,14 +75,19 @@
         <thead class="">
             <tr class="">
                 <th width="300px">
-                    LEFT BAR BODY
+
                 </th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td></td>
+                <td>
+                    <ul id="nav_entities" class="nav nav-pills nav-stacked">
+                        <li id="link_contact"><a data-toggle="tab" href="#contact">Contact</a></li>
+                        <li id="link_pt_sampleentity"><a data-toggle="tab" href="#pt_sampleentity">Sample Entity</a></li>
+                    </ul>
+                </td>
                 <td>
                     <div class="panel panel-default borderless">
                         <div class="panel-body container-fluid" ng-view>
@@ -59,7 +96,7 @@
                 </td>
             </tr>
         </tbody>
-    </table>    
+    </table>
 
     <script src="scripts/adal.js"></script>
     <script src="scripts/util.js"></script>

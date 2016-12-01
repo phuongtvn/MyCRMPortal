@@ -8,6 +8,10 @@
                 templateUrl: "views/ContactView.html",
                 controller: "contactController"
             })
+            .when("/contact/", {
+                templateUrl: "views/ContactView.html",
+                controller: "contactController"
+            })
             .when("/contact/form/:recordId", {
                 templateUrl: "views/ContactForm.html",
                 controller: "contactController"
@@ -16,14 +20,41 @@
                 templateUrl: "views/ContactForm.html",
                 controller: "contactController"
             })
+
+            .when("/account/view", {
+                templateUrl: "views/AccountView.html",
+                controller: "accountController"
+            })
+            .when("/account/", {
+                templateUrl: "views/AccountView.html",
+                controller: "accountController"
+            })
+
+            .when("/pt_sampleentity/view", {
+                templateUrl: "views/pt_sampleentity/EntityView.html",
+                controller: "pt_sampleentityController"
+            })
+            .when("/pt_sampleentity/", {
+                templateUrl: "views/pt_sampleentity/EntityView.html",
+                controller: "pt_sampleentityController"
+            })
+            .when("/pt_sampleentity/form/:recordId", {
+                templateUrl: "views/pt_sampleentity/EntityForm.html",
+                controller: "pt_sampleentityController"
+            })
+            .when("/pt_sampleentity/form/", {
+                templateUrl: "views/pt_sampleentity/EntityForm.html",
+                controller: "pt_sampleentityController"
+            })
+
             .otherwise({
                 templateUrl: "views/ContactView.html",
                 controller: "contactController"
             })
         }]);
 }());
-main.controller("mainCtrl", ["$scope", function ($scope) {
-    $scope.message = "Hello World";
-    $scope.data = "Hello World";
-}]);
+//main.controller("mainCtrl", ["$scope", function ($scope) {
+//    $scope.message = "Hello World";
+//    $scope.data = "Hello World";
+//}]);
 

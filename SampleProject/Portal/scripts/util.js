@@ -142,10 +142,6 @@ function getFullname(Id) {
     req.send();
 }
 
-$(document).ready(function() {
-    
-});
-
 var queryAccount = function () {
     var token = authContext.getCachedToken(organizationURI);
     if (token == null)

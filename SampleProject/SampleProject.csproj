@@ -125,6 +125,7 @@
     <Content Include="Portal\scripts\adal.js" />
     <Content Include="Portal\scripts\app.js" />
     <Content Include="Portal\scripts\controllers\contactController.js" />
+    <Content Include="Portal\scripts\controllers\pt_sampleentityController.js" />
     <Content Include="Portal\scripts\util.js" />
     <Content Include="Portal\views\ContactForm.html" />
     <Content Include="Portal\views\ContactView.html" />
@@ -137,6 +138,8 @@
     <Content Include="Portal\scripts\angular.min.js" />
     <Content Include="Portal\scripts\angular-route.js" />
     <Content Include="Portal\scripts\angular-route.min.js" />
+    <Content Include="Portal\views\pt_sampleentity\EntityForm.html" />
+    <Content Include="Portal\views\pt_sampleentity\EntityView.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

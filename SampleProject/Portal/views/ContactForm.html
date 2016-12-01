@@ -1,30 +1,60 @@
 ﻿<h2>
-    Contact: {{selectedRecord.fullname}}
+    Contact: {{selRecord.fullname}}
 </h2>
 <a class="btn btn-primary" href="#contact/view">Go to view</a>
-<form  class="form-horizontal" ng-init="formInit()">
+<form class="form-horizontal" ng-init="formInit()">
+    <div class="form-group row"></div>
     <div class="form-group row">
-        <label for="fullname" class="col-md-1 control-label">Fullname</label>
+        <label for="firstname" class="col-md-1 control-label">First Name</label>
         <div class="col-md-4">
-            <input class="form-control" type="text" value="{{selectedRecord.fullname}}" id="fullname">
+            <input class="form-control" type="text" ng-model="selRecord.firstname" id="firstname">
+        </div>
+        <label for="lastname" class="col-md-1 control-label">Last Name</label>
+        <div class="col-md-4">
+            <input class="form-control" type="text" ng-model="selRecord.lastname" id="lastname">
         </div>
     </div>
     <div class="form-group">
         <label for="fullname" class="col-md-1 control-label">Job Title</label>
         <div class="col-md-4">
-            <input class="form-control" type="text" value="{{selectedRecord.jobtitle}}" id="jobtitle">
+            <input class="form-control" type="text" ng-model="selRecord.jobtitle" id="jobtitle">
         </div>
     </div>
     <div class="form-group row">
         <label for="emailaddress1" class="col-md-1 control-label">Email</label>
         <div class="col-md-4">
-            <input class="form-control" type="text" value="{{selectedRecord.emailaddress1}}" id="emailaddress1">
+            <input class="form-control" type="text" ng-model="selRecord.emailaddress1" id="emailaddress1">
         </div>
     </div>
     <div class="form-group">
         <label for="telephone1" class="col-md-1 control-label">Phone</label>
         <div class="col-md-4">
-            <input class="form-control" type="text" value="{{selectedRecord.telephone1}}" id="telephone1">
+            <input class="form-control" type="text" ng-model="selRecord.telephone1" id="telephone1">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-4">
+            <a class="btn btn-warning" style="width: 120px" ng-click="form_save()">SAVE</a>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modalNotification" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="glyphicon glyphicon-info-sign modal-title">&nbsp;Notification</h4>
+                </div>
+                <div class="modal-body">
+                    <p>{{message}}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
         </div>
     </div>
 </form>

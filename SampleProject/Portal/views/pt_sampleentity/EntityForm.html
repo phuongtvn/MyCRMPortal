@@ -1,0 +1,79 @@
+﻿<h2>
+    Sample Entity: {{selRecord.fullname}}
+</h2>
+<a class="btn btn-primary" href="#{{entity.entityName}}/view">Go to view</a>
+<form class="form-horizontal" ng-init="formInit()">
+    <div class="form-group row"></div>
+    <div class="form-group row">
+        <label for="pt_name" class="col-md-1 control-label">Name</label>
+        <div class="col-md-3">
+            <input class="form-control" type="text" value="{{selRecord.pt_name}}" id="pt_name">
+        </div>
+        <label for="pt_simpleoption" class="col-md-1 control-label">Simple Option</label>
+        <div class="col-md-3">
+            <input class="form-control" type="text" value="{{selRecord.pt_simpleoption}}" id="pt_simpleoption">
+        </div>
+        <label for="pt_simpleboolean" class="col-md-1 control-label">Simple Boolean</label>
+        <div class="col-md-3">
+            <input class="form-control" type="text" value="{{selRecord.pt_simpleboolean}}" id="pt_simpleboolean">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="pt_simpleinteger" class="col-md-1 control-label">Simple Integer</label>
+        <div class="col-md-3">
+            <input class="form-control" type="text" value="{{selRecord.pt_simpleinteger}}" id="pt_simpleinteger">
+        </div>
+        <label for="pt_simplefloating" class="col-md-1 control-label">Simple Floating</label>
+        <div class="col-md-3">
+            <input class="form-control" type="text" value="{{selRecord.pt_simplefloating}}" id="pt_simplefloating">
+        </div>
+        <label for="pt_simpledecimal" class="col-md-1 control-label">Simple Decimal</label>
+        <div class="col-md-3">
+            <input class="form-control" type="text" value="{{selRecord.pt_simpledecimal}}" id="pt_simpledecimal">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="pt_simplecurrency" class="col-md-1 control-label">Simple Currency</label>
+        <div class="col-md-3">
+            <input class="form-control" type="text" baseValue="{{selRecord.pt_simplecurrency_base}}" value="{{selRecord.pt_simplecurrency}}" id="pt_simplecurrency">
+        </div>
+        <label for="_pt_accountlookup_value" class="col-md-1 control-label">Account Lookup</label>
+        <div class="col-md-3">
+            <input class="form-control" type="text" value="{{selRecord._pt_accountlookup_value}}" id="_pt_accountlookup_value">
+        </div>
+        <label for="_pt_customerlookup_value" class="col-md-1 control-label">Customer Lookup</label>
+        <div class="col-md-3">
+            <input class="form-control" type="text" value="{{selRecord._pt_customerlookup_value}}" id="_pt_customerlookup_value">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="pt_simpledateonlyuserlocal" class="col-md-1 control-label">Simple Date Only User Local</label>
+        <div class="col-md-3">
+            <input class="form-control" type="text" value="{{selRecord.pt_simpledateonlyuserlocal}}" id="pt_simpledateonlyuserlocal">
+        </div>
+        <label for="pt_simpledatetimeuserlocal" class="col-md-1 control-label">Simple Date Time User Local</label>
+        <div class="col-md-3">
+            <input class="form-control" type="text" value="{{selRecord.pt_simpledatetimeuserlocal}}" id="pt_simpledatetimeuserlocal">
+        </div>
+        <label for="pt_simpledateonly" class="col-md-1 control-label">Simple Date Only</label>
+        <div class="col-md-3">
+            <input class="form-control" type="text" value="{{selRecord.pt_simpledateonly}}" id="pt_simpledateonly">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="pt_simpledateonlytimezoneindependent" class="col-md-1 control-label">Simple Date Only Time Zone Independent</label>
+        <div class="col-md-3">
+            <input class="form-control" type="text" value="{{selRecord.pt_simpledateonlytimezoneindependent}}" id="pt_simpledateonlytimezoneindependent">
+        </div>
+        <label for="pt_simpledatetimetimezoneindependent" class="col-md-1 control-label">Simple Date Time Time Zone Independent</label>
+        <div class="col-md-3">
+            <input class="form-control" type="text" value="{{selRecord.pt_simpledatetimetimezoneindependent}}" id="pt_simpledatetimetimezoneindependent">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="pt_multilinetext" class="col-md-1 control-label">Multiline Text</label>
+        <div class="col-md-3">
+            <input class="form-control" type="text" value="{{selRecord.pt_multilinetext}}" id="pt_multilinetext">
+        </div>
+    </div>
+</form>

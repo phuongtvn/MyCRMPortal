@@ -1,10 +1,10 @@
 ﻿<h2>
-    Contact View
+    Sample Entity View
 </h2>
 <!--<a class="btn btn-primary" href="#contact/form">Go to form</a>-->
 <!--<a class="btn btn-primary" ng-click="TestScript()">Test Script</a>-->
-<a class="btn btn-default" href="#/contact/form/">
-    <span class="glyphicon glyphicon-plus"></span> New Contact
+<a class="btn btn-default" href="#/{{entity.entityName}}/form/">
+    <span class="glyphicon glyphicon-plus"></span> New Sample Entity
 </a>
 <table class="table table-hover table-bordered" ng-init="viewInit()">
     <thead>
@@ -17,13 +17,13 @@
             </th>
         </tr>
     </thead>
-    <tbody ng-repeat="contact in contacts">
-        <tr id="{{contact.contactid}}">
+    <tbody ng-repeat="item in list">
+        <tr id="row_{{item.pt_sampleentityid}}">
             <td>
-                {{contact.fullname}}
+                {{item.pt_name}}
             </td>
             <td>
-                <a class="btn btn-default" href="#/contact/form/{{contact.contactid}}">
+                <a class="btn btn-default" href="#/{{$parent.entity.entityName}}/form/{{item.pt_sampleentityid}}">
                     <span class="glyphicon glyphicon-edit"></span> Edit
                 </a>
                 <a class="btn btn-default" data-toggle="modal" data-target="#deleteModal">
@@ -48,39 +48,11 @@
                 <p>Are you sure want to delete ?</p>
             </div>
             <div class="modal-footer">
-                <a class="btn btn-default" data-dismiss="modal" ng-click="deleteRecord()">Yes</a>
+                <a class="btn btn-default" data-dismiss="modal">Yes</a>
                 <a class="btn btn-default" data-dismiss="modal">No</a>
             </div>
         </div>
 
     </div>
 </div>
-
-<!-- Modal NOTIFICATION -->
-<div id="modalNotification" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="glyphicon glyphicon-info-sign modal-title">&nbsp;Notification</h4>
-            </div>
-            <div class="modal-body">
-                <p>{{message}}</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-
-    </div>
-</div>
-<script>
-    $('#deleteModal').on('show.bs.modal', function (e) {
-        //var yourParameter = e.relatedTarget.dataset.yourParameter;
-        var target = $(e.relatedTarget);
-        var recordId = target.closest('tr')[0].id;
-        $('#deleteModal').attr("recordId", recordId);        
-    });
-</script>
 <!------------------------ End: DELETE POPUP ------------------------>
