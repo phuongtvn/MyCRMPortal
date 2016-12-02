@@ -2,5 +2,5 @@
 
 - Notes: Setup your web application url to http://localhost:61950/ (as in Azure AD configuration and util.js)
 
-> <b>User & password for Dynamics CRM 365:</b>
+> <b>User & password for Dynamics CRM 365:</b><br/>
 > phuongtvn@phuongtvn2.onmicrosoft.com / test@123
