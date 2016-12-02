@@ -53,8 +53,3 @@
             })
         }]);
 }());
-//main.controller("mainCtrl", ["$scope", function ($scope) {
-//    $scope.message = "Hello World";
-//    $scope.data = "Hello World";
-//}]);
-

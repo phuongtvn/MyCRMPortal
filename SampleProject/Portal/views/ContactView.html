@@ -1,8 +1,6 @@
 ﻿<h2>
     Contact View
 </h2>
-<!--<a class="btn btn-primary" href="#contact/form">Go to form</a>-->
-<!--<a class="btn btn-primary" ng-click="TestScript()">Test Script</a>-->
 <a class="btn btn-default" href="#/contact/form/">
     <span class="glyphicon glyphicon-plus"></span> New Contact
 </a>
@@ -52,9 +50,17 @@
                 <a class="btn btn-default" data-dismiss="modal">No</a>
             </div>
         </div>
-
     </div>
 </div>
+<script>
+    $('#deleteModal').on('show.bs.modal', function (e) {
+        //var yourParameter = e.relatedTarget.dataset.yourParameter;
+        var target = $(e.relatedTarget);
+        var recordId = target.closest('tr')[0].id;
+        $('#deleteModal').attr("recordId", recordId);
+    });
+</script>
+<!------------------------ End: DELETE POPUP ------------------------>
 
 <!-- Modal NOTIFICATION -->
 <div id="modalNotification" class="modal fade" role="dialog">
@@ -72,15 +78,5 @@
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
-
     </div>
 </div>
-<script>
-    $('#deleteModal').on('show.bs.modal', function (e) {
-        //var yourParameter = e.relatedTarget.dataset.yourParameter;
-        var target = $(e.relatedTarget);
-        var recordId = target.closest('tr')[0].id;
-        $('#deleteModal').attr("recordId", recordId);        
-    });
-</script>
-<!------------------------ End: DELETE POPUP ------------------------>

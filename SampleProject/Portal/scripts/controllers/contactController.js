@@ -106,13 +106,6 @@
         $scope.showNotification = function () {
             $('#modalNotification').modal('show');
         }
-        $scope.TestScript = function () {
-            /*--------------------------------*/
-            /*                                */
-            /*           NOT IN USE           */
-            /*                                */
-            /*--------------------------------*/
-        }
 
         /*------------------ End: FORM methods ------------------*/
 
