@@ -49,7 +49,7 @@
             if (id && id != null) {
                 let requestUri = encodeURI(organizationURI + "/api/data/v8.2/contacts(" + id + ")");
                 $scope.executeRequest("DELETE", requestUri, null, function (response) {
-                    $scope.message = "Contact is delete successfully !";
+                    $scope.message = "Contact is deleted successfully !";
                     $scope.showNotification();
                     $scope.queryData();
                 })
