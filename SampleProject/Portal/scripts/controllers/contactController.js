@@ -66,12 +66,22 @@
         $scope.form_save = function () {
             var requestUri = "";
             if ($scope.formType == FORM_TYPE.Create) {
+                // Create Record
                 requestUri = encodeURI(organizationURI + "/api/data/v8.2/contacts");
                 $scope.executeRequest("POST", requestUri, $scope.selRecord, function (response) {
-                    
+                    recordUri = response;
+                    var regExp = /\(([^)]+)\)/;
+                    var matches = regExp.exec(recordUri);
+                    if (matches == null)
+                        console.error("Error when execute action. Record uri:" + recordUri);
+                    else {
+                        var newRecordId = matches[1];
+                        location.hash += newRecordId;
+                    }
                 })
             }
-            else { // TODO: Update record using PATCH
+            else {
+                // Update record using PATCH
                 if ($scope.formType == FORM_TYPE.Update) {
                     requestUri = encodeURI(organizationURI + "/api/data/v8.2/contacts(" + $scope.selRecordId + ")");
                     let updateEntity = {
@@ -122,21 +132,13 @@
             var req = new XMLHttpRequest
             req.open(requestType, requestUri, true);
             req.onreadystatechange = function () {
-                if (requestType == "POST" && req.readyState == 2 && req.status == 204) {
-                    // RECORD CREATED => refresh url
-                    var recordUri = req.getResponseHeader("OData-EntityId");
-                    var regExp = /\(([^)]+)\)/;
-                    var matches = regExp.exec(recordUri);
-                    if (matches == null)
-                        console.error("Error when execute action. Record uri:" + recordUri);
-                    else {
-                        var newRecordId = matches[0];
-                        location.hash += newRecordId.replace("(", "").replace(")", "");
+                if (req.readyState == 4 && (req.status == 200 || req.status == 201 || req.status == 204)) {                    
+                    var response = (req.responseText == "") ? "" : JSON.parse(req.responseText);
+                    if (requestType == "POST" && req.status == 204) {
+                        // RECORD CREATED => refresh url
+                        response = req.getResponseHeader("OData-EntityId");                     
                     }
 
-                }
-                else if (req.readyState == 4 && (req.status == 200 || req.status == 204)) {
-                    var response = (req.responseText == "") ? "" : JSON.parse(req.responseText);
                     if (typeof callbackFn == "function") {
                         callbackFn(response);
                         $scope.$apply();
