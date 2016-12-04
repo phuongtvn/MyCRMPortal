@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        .borderless {
+            border: none;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+
+        });
+    </script>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Dynamics CRM Web API Sample</a>
+            </div>
+            <div id="anonymous_user">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a id="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+            <div id="register_user">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a><span id="user_name"></span></a></li>
+                    <li><a id="sign_out">Sign out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <form style="margin-left: 20px">
+        <div class="form-group row">
+            <div class="col-md-1">
+                <label for="requestType">Request Type</label>
+                <select class="form-control" id="requestType" onchange="requestType_Changed()">
+                    <option value="GET" selected="selected">GET</option>
+                    <option value="POST">POST</option>
+                    <option value="PATCH">PATCH</option>
+                    <option value="PUT">PUT</option>
+                    <option value="DELETE">DELETE</option>
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <label for="uri">Organization Uri:</label>
+                <input type="text" class="form-control" id="uri" value="https://phuongtvn2.api.crm5.dynamics.com/api/data/v8.2/"
+                       placeholder="Organization uri (e.g https://phuongtvn2.api.crm5.dynamics.com/api/data/v8.2/)" />
+            </div>
+            <div class="col-md-6">
+                <label for="parameters">Parameters:</label>
+                <input type="text" class="form-control" id="parameters" value="accounts?$select=name"
+                       placeholder="e.g accounts?$select=name" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-1">
+                <label><input type="checkbox">&nbsp;Data return</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-5">
+                <label for="requestBody">Request Body:</label>                
+                <textarea id="requestBody" rows="20" style="width: 100%"></textarea>
+            </div>
+            <div class="col-md-5">
+                <label>Response:</label>
+                <textarea id="response" rows="20" readonly style="width: 100%"></textarea>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-info" onclick="WebAPI.SendRequest()">Send Request</button>
+    </form>
+    <script src="scripts/adal.js"></script>
+    <script src="scripts/util.js"></script>
+</body>
+</html>
