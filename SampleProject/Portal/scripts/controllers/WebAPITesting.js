@@ -46,7 +46,6 @@
 
                 if (typeof callbackFn == "function") {
                     callbackFn(response);
-                    $scope.$apply();
                 }
             }
         };
@@ -66,7 +65,13 @@
 
     /*-------------------------------- Begin: public methods --------------------------------*/
     var sendRequest = function () {
-        var requestType, uri, requestBody, isDataReturn;
+        var requestType, requestUri, requestBody, isDataReturn, uri, parameters;
+        uri = $("#uri").val();
+        parameters = $("#parameters").val();
+        requestType = $("#requestType").val();
+        requestUri = uri + parameters;
+        isDataReturn = $("#dataReturn").prop('checked');
+        requestBody = JSON.parse($("#requestBody").val());
 
 
     }
