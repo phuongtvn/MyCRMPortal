@@ -26,7 +26,7 @@ var pageData = [];
         clientId: clientId,
         postLogoutRedirectUri: pageUrl,
         endpoints: endpoints,
-        cacheLocation: 'localStorage', 
+        cacheLocation: 'localStorage',
     };
     authContext = new AuthenticationContext(config);
     authenticate();
@@ -47,21 +47,19 @@ function authenticate() {
     var loginError = authContext.getLoginError();
 
     if (isCallback && !loginError) {
-        window.location = authContext._getItem(authContext.CONSTANTS.STORAGE.LOGIN_REQUEST);        
+        window.location = authContext._getItem(authContext.CONSTANTS.STORAGE.LOGIN_REQUEST);
     }
     else {
         //errorMessage.textContent = loginError;
         //alert(loginError);
     }
-    if (authContext._loginInProgress == true)
-    {
+    if (authContext._loginInProgress == true) {
         return;
     }
     user = authContext.getCachedUser();
     var hasToken = true;
-    if (authContext._getItem(authContext.CONSTANTS.STORAGE.EXPIRATION_KEY + organizationURI) == 0 || 
-        authContext._getItem(authContext.CONSTANTS.STORAGE.RENEW_STATUS + window.config.clientId) == authContext.CONSTANTS.TOKEN_RENEW_STATUS_COMPLETED)
-    {
+    if (authContext._getItem(authContext.CONSTANTS.STORAGE.EXPIRATION_KEY + organizationURI) == 0 ||
+        authContext._getItem(authContext.CONSTANTS.STORAGE.RENEW_STATUS + window.config.clientId) == authContext.CONSTANTS.TOKEN_RENEW_STATUS_COMPLETED) {
         authContext.acquireToken(organizationURI,
         function (error, token) {
             if (!token) {
@@ -81,7 +79,6 @@ function authenticate() {
     if (user && token != null) {
         displayLogin();
     }
-    
 }
 function login() {
     authContext.login();
@@ -99,7 +96,7 @@ function displayLogin() {
     document.getElementById('user_name').appendChild(helloMessage);
 }
 
-function getUserId(error,token) {
+function getUserId(error, token) {
     var req = new XMLHttpRequest
     req.open("GET", encodeURI(organizationURI + "/api/data/v8.2/WhoAmI"), true);
     req.onreadystatechange = function () {
