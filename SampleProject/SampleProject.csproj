@@ -117,6 +117,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Portal\css\custom.css" />
     <Content Include="Portal\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Portal\css\bootstrap.min.css" />
     <Content Include="Portal\Sample_Backup.html" />

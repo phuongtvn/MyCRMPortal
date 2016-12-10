@@ -34,12 +34,12 @@
 
         var token = authContext.getCachedToken(organizationURI);
         if (token == null) return;
-        var req = new XMLHttpRequest
-        req.open(requestType, requestUri, true);
+        var req = new XMLHttpRequest();
+        req.open(requestType, uri, true);
         req.onreadystatechange = function () {
             if (req.readyState == 4 && (req.status == 200 || req.status == 201 || req.status == 204)) {
                 var response = (req.responseText == "") ? "" : JSON.parse(req.responseText);
-                if (requestType == "POST" && req.status == 204) {
+                if (req.status == 204) {
                     // RECORD CREATED => refresh url
                     response = req.getResponseHeader("OData-EntityId");
                 }
@@ -57,22 +57,56 @@
             req.setRequestHeader("Prefer", "return=representation");
         req.setRequestHeader("Authorization", "Bearer " + token);
 
-        req.send(JSON.stringify(data));
+        req.send(data == null ? null : JSON.stringify(data));
+    }
+    var _requestCallback = function (response) {
+        if (typeof response == "string") {
+            $("#response").val(response);
+        }
+        else if (typeof response == "object") {
+            var json = JSON.stringify(response, null, 2);
+            $("#response").val(json);
+        }
+
+        //$("#loader").attr("hidden", true);
     }
 
-
+    var _beautifulJSON = function (json) {
+        json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+            var cls = 'number';
+            if (/^"/.test(match)) {
+                if (/:$/.test(match)) {
+                    cls = 'key';
+                } else {
+                    cls = 'string';
+                }
+            } else if (/true|false/.test(match)) {
+                cls = 'boolean';
+            } else if (/null/.test(match)) {
+                cls = 'null';
+            }
+            return '<span class="' + cls + '">' + match + '</span>';
+        });
+    }
     /*-------------------------------- End: private methods --------------------------------*/
 
     /*-------------------------------- Begin: public methods --------------------------------*/
     var sendRequest = function () {
-        var requestType, requestUri, requestBody, isDataReturn, uri, parameters;
-        uri = $("#uri").val();
-        parameters = $("#parameters").val();
-        requestType = $("#requestType").val();
-        requestUri = uri + parameters;
-        isDataReturn = $("#dataReturn").prop('checked');
-        requestBody = JSON.parse($("#requestBody").val());
+        try {                        
+            //$("#loader").removeAttr("hidden");
+            var requestType, requestUri, requestBody, isDataReturn, uri, parameters;
+            uri = $("#uri").val();
+            parameters = $("#parameters").val();
+            requestType = $("#requestType").val();
+            requestUri = uri + parameters;
+            isDataReturn = $("#dataReturn").prop('checked');
+            requestBody = $("#requestBody").val() == "" ? null : JSON.parse($("#requestBody").val());
 
+            _executeRequest(requestType, requestUri, isDataReturn, requestBody, _requestCallback);
+        } catch (ex) {
+            throw new Error(ex.message);
+        }
 
     }
 
