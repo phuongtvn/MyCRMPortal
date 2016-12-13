@@ -188,6 +188,7 @@ var AuthenticationContext = (function () {
         this._saveItem(this.CONSTANTS.STORAGE.ERROR, '');
         this._saveItem(this.CONSTANTS.STORAGE.ERROR_DESCRIPTION, '');
         var urlNavigate = this._getNavigateUrl('id_token', null) + '&nonce=' + encodeURIComponent(this._idTokenNonce);
+        //urlNavigate += '&prompt=admin_consent';
         this._loginInProgress = true;
         if (this.popUp) {
             this._loginPopup(urlNavigate);

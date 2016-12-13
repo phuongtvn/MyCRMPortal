@@ -10,11 +10,11 @@
 ================================================================================================*/
 
 var user, authContext, errorMessage;
-var organizationURI = "https://phuongtvn2.api.crm5.dynamics.com"; // TODO: Add your organizationURI
+var organizationURI = "https://phuongtvn3.api.crm5.dynamics.com"; // TODO: Add your organizationURI
 var pageData = [];
 (function () {
-    var tenant = "b5101e80-6255-4e07-afed-380b2d3bdd51"; // TODO: add your tenant
-    var clientId = "30156abc-cc53-468f-a1ca-972e1c3b02d6"; // TODO: Add your Client Id
+    var tenant = "0c829822-1720-439e-8713-45fbd1a1129a"; // TODO: add your tenant
+    var clientId = "2cfaad77-f9c7-4502-852b-c3b0bd06a43c"; // TODO: Add your Client Id
     var pageUrl = "http://localhost:61950/Portal/Sample.html";// TODO: Add your Reply URL
 
     var endpoints = {

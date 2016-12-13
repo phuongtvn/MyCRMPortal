@@ -19,7 +19,7 @@
         LOADING: 3,
         DONE: 4
     }
-    var organizationURI = "https://phuongtvn2.api.crm5.dynamics.com";
+    var organizationURI = "https://phuongtvn3.api.crm5.dynamics.com";
     var requestUri = organizationURI + "/api/data/v8.2/";
 
 
